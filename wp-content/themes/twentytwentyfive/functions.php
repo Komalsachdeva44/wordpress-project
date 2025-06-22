@@ -8,6 +8,21 @@
  * @subpackage Twenty_Twenty_Five
  * @since Twenty Twenty-Five 1.0
  */
+add_filter('query_vars', function($vars){
+    $vars[] = 'ecwid_product_id';
+    return $vars;
+});
+
+add_action('init', function(){
+    add_rewrite_rule('^product/([0-9]+)/?', 'index.php?ecwid_product_id=$matches[1]', 'top');
+});
+
+add_action('template_redirect', function(){
+    if (get_query_var('ecwid_product_id')) {
+        include plugin_dir_path(__FILE__) . 'widgets/templates/single-product.php';
+        exit;
+    }
+});
 
 // Adds theme support for post formats.
 if ( ! function_exists( 'twentytwentyfive_post_format_setup' ) ) :
