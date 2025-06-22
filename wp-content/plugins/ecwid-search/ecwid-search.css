@@ -1,40 +1,76 @@
-.ecwid-search-container {
+.ecwid-search-wrapper {
     position: relative;
-    max-width: 400px;
+    max-width: 600px;
     margin: 20px auto;
+    display: flex;
 }
 #ecwid-search-input {
-    width: 100%;
-    padding: 10px 12px;
+    flex: 1;
+    padding: 10px 14px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+#ecwid-search-btn {
+    padding: 0 20px;
+    background-color: #1d3c6c;
+    color: white;
+    border: 1px solid #1d3c6c;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+#ecwid-search-btn:hover {
+    background: transparent;
+    color: #1d3c6c;
 }
 #ecwid-search-results {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
     background: white;
-    z-index: 999;
     border: 1px solid #ccc;
     border-top: none;
-    max-height: 400px;
-    overflow-y: auto;
+    z-index: 999;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+.ecwid-popular {
+    font-size: 14px;
+    color: #666;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+}
+.ecwid-pop-item {
+    color: #1d3c6c;
+    text-decoration: none;
+    margin: 0 6px;
+}
+.ecwid-pop-item:hover {
+    text-decoration: underline;
 }
 .ecwid-res-item {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 14px 20px;
     border-bottom: 1px solid #eee;
     text-decoration: none;
     color: #333;
 }
 .ecwid-res-item:hover {
-    background-color: #e6f0ff;
+    background: #f5faff;
 }
 .ecwid-res-item img {
     margin-right: 12px;
     border-radius: 4px;
+    flex-shrink: 0;
+}
+.ecwid-res-name {
+    font-weight: bold;
 }
 .ecwid-res-info {
     display: flex;
@@ -49,7 +85,50 @@
     margin-top: 4px;
 }
 .ecwid-no-res {
-    padding: 10px;
+    padding: 12px 20px;
     color: #999;
     font-style: italic;
+}
+.ecwid-loading {
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+}
+
+.ecwid-res-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.ecwid-res-item:hover {
+    background-color: #f4f8ff;
+}
+
+.ecwid-res-info {
+    margin-left: 10px;
+}
+
+.res-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.res-price {
+    color: #0073e6;
+    font-size: 14px;
+    display: block;
+    margin-top: 4px;
+}
+
+.ecwid-no-res {
+    text-align: center;
+    padding: 15px;
+    color: #999;
+    font-size: 14px;
 }
